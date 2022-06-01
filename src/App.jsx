@@ -7,6 +7,7 @@ const url = 'https://edwardtanguay.netlify.app/share/germanNouns.json';
 
 function App() {
 	const [nouns, setNouns] = useState([]);
+  const [choice, setChoice] = useState('hide');
 
 	useEffect(() => {
 		(async () => {
@@ -20,12 +21,11 @@ function App() {
 		<div className="App">
 			<h1>German Article Practice</h1>
       <div className="buttons">
-        <button>der</button>
-        <button>die</button>
-        <button>das</button>
-        <button>hide</button>
+        <button onClick={() => setChoice('der')}>der</button>
+        <button onClick={() => setChoice('die')}>die</button>
+        <button onClick={() => setChoice('das')}>das</button>
+        <button onClick={() => setChoice('hide')}>hide</button>
       </div>
-
       <div className="nouns">
         {nouns.map((noun, index) => {
           return (
