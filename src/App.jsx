@@ -11,7 +11,7 @@ function App() {
 	const [choice, setChoice] = useState('hide');
 
   const Button = styled.button`
-      background-color: green;
+      background-color: ${(props) =>  props.mode === 'selected' ? 'green' : '#eee'}; 
   `;
 
 	useEffect(() => {
@@ -26,11 +26,13 @@ function App() {
 		<div className="App">
 			<h1>German Article Practice</h1>
 			<div className="buttons">
-				<button onClick={() => setChoice('der')}>der</button>
-        <Button >der</Button>
-				<button onClick={() => setChoice('die')}>die</button>
-				<button onClick={() => setChoice('die')}>das</button>
-				<button onClick={() => setChoice('hide')}>hide</button>
+        <Button mode={choice === 'der' ? 'selected' : 'unselected'} onClick={() => setChoice('der')}>der</Button>
+
+				<Button mode={choice === 'die' ? 'selected' : 'unselected'}  onClick={() => setChoice('die')}>die</Button>
+
+				<Button mode={choice === 'das' ? 'selected' : 'unselected'} onClick={() => setChoice('das')}>das</Button>
+
+				<Button mode={choice === 'hide' ? 'selected' : 'unselected'} onClick={() => setChoice('hide')}>hide</Button>
 			</div>
 
 			<div className="nouns">
