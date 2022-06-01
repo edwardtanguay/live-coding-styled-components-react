@@ -10,15 +10,16 @@ function App() {
 	const [nouns, setNouns] = useState([]);
 	const [choice, setChoice] = useState('hide');
 
-  const Button = styled.button`
-      background-color: ${(props) =>  props.mode === 'selected' ? 'green' : '#eee'}; 
-  `;
+	const Button = styled.button`
+		background-color: ${(props) =>
+			props.mode === 'selected' ? 'green' : '#eee'};
+	`;
 
-  const Noun = styled.div`
-			background-color: #444;
-			padding: 5px;
-			text-align: center;
-  `;
+	const Noun = styled.div`
+		background-color: #444;
+		padding: 5px;
+		text-align: center;
+	`;
 
 	useEffect(() => {
 		(async () => {
@@ -32,20 +33,41 @@ function App() {
 		<div className="App">
 			<h1>German Article Practice</h1>
 			<div className="buttons">
-        <Button mode={choice === 'der' ? 'selected' : 'unselected'} onClick={() => setChoice('der')}>der</Button>
+				<Button
+					mode={choice === 'der' ? 'selected' : 'unselected'}
+					onClick={() => setChoice('der')}
+				>
+					der
+				</Button>
 
-				<Button mode={choice === 'die' ? 'selected' : 'unselected'}  onClick={() => setChoice('die')}>die</Button>
+				<Button
+					mode={choice === 'die' ? 'selected' : 'unselected'}
+					onClick={() => setChoice('die')}
+				>
+					die
+				</Button>
 
-				<Button mode={choice === 'das' ? 'selected' : 'unselected'} onClick={() => setChoice('das')}>das</Button>
+				<Button
+					mode={choice === 'das' ? 'selected' : 'unselected'}
+					onClick={() => setChoice('das')}
+				>
+					das
+				</Button>
 
-				<Button mode={choice === 'hide' ? 'selected' : 'unselected'} onClick={() => setChoice('hide')}>hide</Button>
+				<Button
+					mode={choice === 'hide' ? 'selected' : 'unselected'}
+					onClick={() => setChoice('hide')}
+				>
+					hide
+				</Button>
 			</div>
 
 			<div className="nouns">
 				{nouns.map((noun, index) => {
 					return (
 						<Noun>
-							{noun.article} {noun.singular}
+							{choice === noun.article && <>{noun.article}</>}{' '}
+							{noun.singular}
 						</Noun>
 					);
 				})}
