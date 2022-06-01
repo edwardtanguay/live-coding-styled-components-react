@@ -1,4 +1,6 @@
-- create buttons
-- list out nouns in grid
+- x create buttons
+- x list out nouns in grid
 
+- change style dynamically
+- change class dynamically
 - every article has its own color
