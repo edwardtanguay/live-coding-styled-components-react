@@ -9,20 +9,18 @@ body {
 
 	.buttons {
 		margin-bottom: 10px;
+
 		button {
 			font-size: 1.5rem;
 			width: 100px;
 			margin-right: 5px;
 		}
-		button.active {
-			background-color: green;
-		}
 	}
 
 	.nouns {
 		display: grid;
-		grid-template-columns: repeat(5,1fr);
-		grid-template-rows: repeate(5,1fr);
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeate(5, 1fr);
 		grid-column-gap: 2px;
 		grid-row-gap: 2px;
 
