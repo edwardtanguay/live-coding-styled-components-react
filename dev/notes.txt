@@ -1,0 +1,4 @@
+- create buttons
+- list out nouns in grid
+
+- every article has its own color
