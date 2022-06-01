@@ -11,12 +11,29 @@ function App() {
 	const [choice, setChoice] = useState('hide');
 
 	const Button = styled.button`
-		background-color: ${(props) =>
-			props.mode === 'selected' ? 'green' : '#eee'};
+		background-color: ${(props) => {
+			let color = '';
+			switch (props.article) {
+        case 'der':
+          color = 'blue';
+          break;
+        case 'die':
+          color = 'red';
+          break;
+        case 'das':
+          color = 'green';
+          break;
+        case 'hide':
+          color = '#ddd';
+          break;
+			}
+			return props.mode === 'selected' ? color : '#eee';
+		}};
 	`;
 
 	const Noun = styled.div`
-		background-color: ${(props) => props.mode==='selected' ? 'green' : '#444'};
+		background-color: ${(props) =>
+			props.mode === 'selected' ? 'green' : '#444'};
 		padding: 5px;
 		text-align: center;
 	`;
@@ -35,6 +52,7 @@ function App() {
 			<div className="buttons">
 				<Button
 					mode={choice === 'der' ? 'selected' : 'unselected'}
+					article="der"
 					onClick={() => setChoice('der')}
 				>
 					der
@@ -42,6 +60,7 @@ function App() {
 
 				<Button
 					mode={choice === 'die' ? 'selected' : 'unselected'}
+					article="die"
 					onClick={() => setChoice('die')}
 				>
 					die
@@ -49,6 +68,7 @@ function App() {
 
 				<Button
 					mode={choice === 'das' ? 'selected' : 'unselected'}
+					article="das"
 					onClick={() => setChoice('das')}
 				>
 					das
@@ -56,6 +76,7 @@ function App() {
 
 				<Button
 					mode={choice === 'hide' ? 'selected' : 'unselected'}
+					article="hide"
 					onClick={() => setChoice('hide')}
 				>
 					hide
@@ -65,7 +86,13 @@ function App() {
 			<div className="nouns">
 				{nouns.map((noun, index) => {
 					return (
-						<Noun mode={choice === noun.article ? 'selected' : 'unselected'}>
+						<Noun
+							mode={
+								choice === noun.article
+									? 'selected'
+									: 'unselected'
+							}
+						>
 							{choice === noun.article && <>{noun.article}</>}{' '}
 							{noun.singular}
 						</Noun>
