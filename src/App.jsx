@@ -14,26 +14,42 @@ function App() {
 		background-color: ${(props) => {
 			let color = '';
 			switch (props.article) {
-        case 'der':
-          color = 'blue';
-          break;
-        case 'die':
-          color = 'red';
-          break;
-        case 'das':
-          color = 'green';
-          break;
-        case 'hide':
-          color = '#ddd';
-          break;
+				case 'der':
+					color = 'blue';
+					break;
+				case 'die':
+					color = 'darkred';
+					break;
+				case 'das':
+					color = 'green';
+					break;
+				case 'hide':
+					color = '#ddd';
+					break;
 			}
 			return props.mode === 'selected' ? color : '#eee';
 		}};
 	`;
 
 	const Noun = styled.div`
-		background-color: ${(props) =>
-			props.mode === 'selected' ? 'green' : '#444'};
+		background-color: ${(props) => {
+			let color = '';
+			switch (props.article) {
+				case 'der':
+					color = 'blue';
+					break;
+				case 'die':
+					color = 'darkred';
+					break;
+				case 'das':
+					color = 'green';
+					break;
+				case 'hide':
+					color = '#ddd';
+					break;
+			}
+			return props.mode === 'selected' ? color : '#444';
+		}};
 		padding: 5px;
 		text-align: center;
 	`;
@@ -92,6 +108,7 @@ function App() {
 									? 'selected'
 									: 'unselected'
 							}
+							article={noun.article}
 						>
 							{choice === noun.article && <>{noun.article}</>}{' '}
 							{noun.singular}
