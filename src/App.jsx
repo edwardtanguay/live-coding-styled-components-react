@@ -16,7 +16,7 @@ function App() {
 	`;
 
 	const Noun = styled.div`
-		background-color: #444;
+		background-color: ${(props) => props.mode==='selected' ? 'green' : '#444'};
 		padding: 5px;
 		text-align: center;
 	`;
@@ -65,7 +65,7 @@ function App() {
 			<div className="nouns">
 				{nouns.map((noun, index) => {
 					return (
-						<Noun>
+						<Noun mode="selected">
 							{choice === noun.article && <>{noun.article}</>}{' '}
 							{noun.singular}
 						</Noun>
