@@ -65,7 +65,7 @@ function App() {
 			<div className="nouns">
 				{nouns.map((noun, index) => {
 					return (
-						<Noun mode="selected">
+						<Noun mode={choice === noun.article ? 'selected' : 'unselected'}>
 							{choice === noun.article && <>{noun.article}</>}{' '}
 							{noun.singular}
 						</Noun>
