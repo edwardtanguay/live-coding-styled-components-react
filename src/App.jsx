@@ -14,6 +14,12 @@ function App() {
       background-color: ${(props) =>  props.mode === 'selected' ? 'green' : '#eee'}; 
   `;
 
+  const Noun = styled.div`
+			background-color: #444;
+			padding: 5px;
+			text-align: center;
+  `;
+
 	useEffect(() => {
 		(async () => {
 			const _nouns = (await axios.get(url)).data;
@@ -38,9 +44,9 @@ function App() {
 			<div className="nouns">
 				{nouns.map((noun, index) => {
 					return (
-						<div className="noun">
+						<Noun>
 							{noun.article} {noun.singular}
-						</div>
+						</Noun>
 					);
 				})}
 			</div>
